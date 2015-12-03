@@ -105,7 +105,7 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 
 " 字体
-set guifontwide=Microsoft_YaHei_Mono:h10
+"set guifontwide=Microsoft_YaHei_Mono:h10
 "set guifont=Microsoft\ YaHei\ Mono:h14
 "set guifontwide=monofur_for_Powerline:h13
 "set guifont=monofur_for_Powerline:h13
@@ -119,8 +119,8 @@ set guifont=Microsoft_YaHei_Mono:h9.5
 "
 "set guifont=monofur_for_Powerline:h13
 "set guifont=monofur_for_Powerline:h13
-"set guifontwide=Monaco:h13
-"set guifont=Monaco:h13
+"set guifont=monaco:h9
+"set guifontwide=monaco:h9.2
 "set guifontwide=YaHei\ Consolas\ Hybrid\ 12 
 "set guifont=YaHei\ Consolas\ Hybrid\ 12 
 
@@ -130,7 +130,7 @@ set fenc=utf-8
 set fencs=utf-8,gbk,gb2312,gb18030,cp936,usc-bom,euc-jp
 
 "行间距
-set lsp=2
+set lsp=5
 
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
@@ -216,7 +216,7 @@ set selection=exclusive
 set selectmode=mouse,key
 
 " 启动的时候不显示那个援助索马里儿童的提示
-"set shortmess=atI
+set shortmess=atI
 
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
 set report=0
@@ -330,7 +330,7 @@ endif "has("autocmd")"
 " 键映射
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "修改<leader>的映射键为','
-let mapleader="\\"
+let mapleader=","
 
 
 " 高亮显示普通txt文件（需要txt.vim脚本）
@@ -591,6 +591,11 @@ endif
 "let g:syntastic_phpcs_conf = "--tab-width=4 --standard=CodeIgniter"
 "let g:syntastic_cpp_compiler = 'clang++'
 "let g:syntastic_cpp_compiler_options = '-std=c++11'
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lua_complete_omni=0
+let g:lua_define_completefunc = 0
+let g:lua_define_omnifunc = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               EasyMotion                 """""""""""""""""""""
@@ -666,3 +671,14 @@ map <F8> <Esc>:call CodeFormat()<CR>
 " ----------------------- auto commands ----------------------------- "
 " BufWritePost : after the file is saved;
 "autocmd BufWritePre *.c,*.cpp execute '!astyle %'
+"
+
+function OpenFileLocation()
+    if (expand("%") != "")
+        exec "!start explorer /select, %"
+    else
+        exec "!start explorer /select, %:p:h"
+    endif
+endfunction
+
+map <F3> <Esc>:call OpenFileLocation()<CR>
