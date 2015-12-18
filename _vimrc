@@ -113,7 +113,9 @@ let g:rehash256 = 1
 
 "set guifont=Dejavu_Sans_Mono_for_Powerline:h9
 "set guifont=Consolas:h9.8
-set guifont=Microsoft_YaHei_Mono:h9.5
+"set guifont=Ubuntu_Mono:h10
+set guifont=Ubuntu_Mono_derivative_Powerlin:h10
+"set guifont=Microsoft_YaHei_Mono:h9.5
 "set guifont=Consolas_for_Powerline:h10
 "set guifont=Inconsolata_for_Powerline:h10
 "
@@ -130,7 +132,7 @@ set fenc=utf-8
 set fencs=utf-8,gbk,gb2312,gb18030,cp936,usc-bom,euc-jp
 
 "行间距
-set lsp=5
+set lsp=6
 
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
