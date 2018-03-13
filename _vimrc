@@ -16,8 +16,6 @@ if has("gui_running")
     "-- 80 columns limit
     "let &colorcolumn=join(range(81,999),",")
     "let &colorcolumn="80,".join(range(400,999),",")
-    "
-    "
 endif
 
 set relativenumber
