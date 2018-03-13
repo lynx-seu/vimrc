@@ -1,349 +1,270 @@
+set go-=r
+set go-=l
 
-""""" """ " Love your Life, please " """ """""
-        """"""""" """ " """ """""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                  Vundle                   """""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible	" be iMproved
-filetype off		" required!
-
-set rtp+=$VIM/vimfiles/bundle/vundle/ 
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-
-" Bundle here:
-""""""""""""""
-" è¯­æ³•é«˜äº®
-"""""""""""""""""""""""""""""""
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
-
-" User Interface
-"""""""""""""""""""""""""""""""
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'bling/vim-airline'
-
-" AutoComplete
-"""""""""""""""""""""""""""""""
-Plugin 'Shougo/neocomplete'
-Plugin 'honza/vim-snippets'
-
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-lua-ftplugin'
-
-" Tools
-""""""""""""""""""""""""""""""
-Plugin 'grep.vim'
-Plugin 'Shougo/vimshell.vim'
-"
-" shell
-""""""""""""""""""""""""""""""
-Plugin 'edkolev/promptline.vim'
-
-
-call vundle#end()
-filetype plugin indent on     " required!
-
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin command are not allowed..
-
-
-""""""""""""""""""""""""""""""Ace""""""""""""""""""""""""""""""""""""
-" ä¸€èˆ¬è®¾å®š
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
-  let g:isGUI = 1
-else
-  left g:isGUI = 0
+    "set guifont=Ubuntu_Mono_derivative_Powerlin:h12
+    "set guifont=Monaco_for_Powerline:h12
+    set guifont=Consolas_for_Powerline_FixedD:h10
+    set go-=m
+    set go-=T
+
+    set hidden
+    set lsp=6
+    set lines=60 columns=120
+    winpos 1200 0
+
+    "-- 80 columns limit
+    "let &colorcolumn=join(range(81,999),",")
+    "let &colorcolumn="80,".join(range(400,999),",")
+    "
+    "
 endif
 
-" çª—å£ä½ç½®ï¼Œ å¤§å°
-set lines=40 columns=110
-winpos 1000 420
+set relativenumber
 
-" è‡ªåŠ¨è®¾ç½®å½“å‰ç¼–è¾‘çš„æ–‡ä»¶æ‰€åœ¨ç›®å½•ä¸ºå½“å‰ç›®å½•
-set autochdir
+" ×Ô¶¯ÉèÖÃµ±Ç°±à¼­µÄÎÄ¼şËùÔÚÄ¿Â¼Îªµ±Ç°Ä¿Â¼
+" set autochdir
 
-"runtime! debian.vim
-" remove menubar
-set go-=m
-set go-=T
-set go-=r
-set go-=L
-"set showtabline=0
-
-" å½“å‰è¡Œ
+" µ±Ç°ĞĞ
 set cursorline
-
-" çºµå‘çº¿
-"augroup cch
-	"autocmd! cch
-	"autocmd WinLeave * set nocursorline
-	"autocmd WinLeave * set nocursorcolumn
-	"autocmd WinEnter,BufRead * set cursorline
-""	autocmd WinEnter,BufRead * set cursorcolumn
-"augroup END
-
-" è®¾ç½®é…è‰²å’ŒCSApprox
-set t_Co=256
-let g:CSApprox_attr_map={'bold':'bold','italic':'','sp':''}
-"colo elise
-
 syntax enable
-"let g:solarized_termcolors=256
-"colorscheme solarized
-"set background=dark
 
 " highlight
 set hlsearch
 
-colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
+"set guifont=Consolas\ for\ Powerline:h13
 
-" å­—ä½“
-"set guifontwide=Microsoft_YaHei_Mono:h10
-"set guifont=Microsoft\ YaHei\ Mono:h14
-"set guifontwide=monofur_for_Powerline:h13
-"set guifont=monofur_for_Powerline:h13
-"
-
-"set guifont=Dejavu_Sans_Mono_for_Powerline:h9
-"set guifont=Consolas:h9.8
-"set guifont=Ubuntu_Mono:h10
-set guifont=Ubuntu_Mono_derivative_Powerlin:h10
-"set guifont=Microsoft_YaHei_Mono:h9.5
-"set guifont=Consolas_for_Powerline:h10
-"set guifont=Inconsolata_for_Powerline:h10
-"
-"set guifont=monofur_for_Powerline:h13
-"set guifont=monofur_for_Powerline:h13
-"set guifont=monaco:h9
-"set guifontwide=monaco:h9.2
-"set guifontwide=YaHei\ Consolas\ Hybrid\ 12 
-"set guifont=YaHei\ Consolas\ Hybrid\ 12 
-
-" è®¾å®šé»˜è®¤è§£ç 
+" Éè¶¨Ä¬ÈÏ½âÂë
 set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,gbk,gb2312,gb18030,cp936,usc-bom,euc-jp
 
-"è¡Œé—´è·
-set lsp=6
-
-" ä¸è¦ä½¿ç”¨viçš„é”®ç›˜æ¨¡å¼ï¼Œè€Œæ˜¯vimè‡ªå·±çš„
+" ²»ÒªÊ¹ÓÃviµÄ¼üÅÌÄ£Ê½£¬¶øÊÇvim×Ô¼ºµÄ
 set nocompatible
 
-" historyæ–‡ä»¶ä¸­éœ€è¦è®°å½•çš„è¡Œæ•°
+" historyÎÄ¼şÖĞĞèÒª¼ÇÂ¼µÄĞĞÊı
 set history=600
 
-" åœ¨å¤„ç†æœªä¿å­˜æˆ–åªè¯»æ–‡ä»¶çš„æ—¶å€™ï¼Œå¼¹å‡ºç¡®è®¤
+" ÔÚ´¦ÀíÎ´±£´æ»òÖ»¶ÁÎÄ¼şµÄÊ±ºò£¬µ¯³öÈ·ÈÏ
 set confirm
 
-" ä¸windowså…±äº«å‰ªè´´æ¿
+" Óëwindows¹²Ïí¼ôÌù°å
 set clipboard+=unnamed
 
-" ä¾¦æµ‹æ–‡ä»¶ç±»å‹
+" Õì²âÎÄ¼şÀàĞÍ
 filetype on
-
-" è½½å…¥æ–‡ä»¶ç±»å‹æ’ä»¶
+" ÔØÈëÎÄ¼şÀàĞÍ²å¼ş
 filetype plugin on
-
-" ä¸ºç‰¹å®šæ–‡ä»¶ç±»å‹è½½å…¥ç›¸å…³ç¼©è¿›æ–‡ä»¶
+" ÎªÌØ¶¨ÎÄ¼şÀàĞÍÔØÈëÏà¹ØËõ½øÎÄ¼ş
 filetype indent on
 
-" ä¿å­˜å…¨å±€å˜é‡
+" ±£´æÈ«¾Ö±äÁ¿
 set viminfo+=!
-
-" å¸¦æœ‰å¦‚ä¸‹ç¬¦å·çš„å•è¯ä¸è¦è¢«æ¢è¡Œåˆ†å‰²
+" ´øÓĞÈçÏÂ·ûºÅµÄµ¥´Ê²»Òª±»»»ĞĞ·Ö¸î
 set iskeyword+=_,$,@,%,#,-
-
-" è¯­æ³•é«˜äº®
-syntax on
-
-" æ˜¾ç¤ºè¡Œå·(ä¸‹é¢æœ‰è‡ªåŠ¨ä¾¦æµ‹æ–‡ä»¶ç±»å‹æ˜¾ç¤º)
-set nu
-
-" é«˜äº®å­—ç¬¦ï¼Œè®©å…¶ä¸å—100åˆ—é™åˆ¶
-":highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
-":match OverLength '\%101v.*'
-
-" çŠ¶æ€è¡Œé¢œè‰²
-highlight StatusLine guifg=SlateBlue guibg=Yellow
-"highlight StatusLineNC guifg=Gray guibg=White
-
-" é»˜è®¤çª—å£åˆ†å‰²æ–¹å‘
-"set splitbelow
+" Ä¬ÈÏ´°¿Ú·Ö¸î·½Ïò
 set splitright
-
-" æ˜¾ç¤ºåŒ¹é…
+" ÏÔÊ¾Æ¥Åä
 set showmatch
 
+set foldlevel=2
+set foldmethod=syntax
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" æ–‡ä»¶è®¾ç½®
+" ÎÄ¼şÉèÖÃ
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ä¸è¦å¤‡ä»½æ–‡ä»¶ï¼ˆæ ¹æ®è‡ªå·±éœ€è¦å–èˆï¼‰
+" ²»Òª±¸·İÎÄ¼ş£¨¸ù¾İ×Ô¼ºĞèÒªÈ¡Éá£©
 set nobackup
 
-" ä¸è¦ç”Ÿæˆswapæ–‡ä»¶ï¼Œå½“bufferè¢«ä¸¢å¼ƒçš„æ—¶å€™éšè—å®ƒ
+" ²»ÒªÉú³ÉswapÎÄ¼ş£¬µ±buffer±»¶ªÆúµÄÊ±ºòÒş²ØËü
 setlocal noswapfile
 set bufhidden=hide
 
-" å­—ç¬¦é—´æ’å…¥çš„åƒç´ è¡Œæ•°ç›®
-"set linespace=0
-
-" å¢å¼ºæ¨¡å¼ä¸­çš„å‘½ä»¤è¡Œè‡ªåŠ¨å®Œæˆæ“ä½œ
+" ÔöÇ¿Ä£Ê½ÖĞµÄÃüÁîĞĞ×Ô¶¯Íê³É²Ù×÷
 set wildmenu
 
-" åœ¨çŠ¶æ€è¡Œä¸Šæ˜¾ç¤ºå…‰æ ‡æ‰€åœ¨ä½ç½®çš„è¡Œå·å’Œåˆ—å·
+" ÔÚ×´Ì¬ĞĞÉÏÏÔÊ¾¹â±êËùÔÚÎ»ÖÃµÄĞĞºÅºÍÁĞºÅ
 set ruler
 set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)
 
-" å‘½ä»¤è¡Œï¼ˆåœ¨çŠ¶æ€è¡Œä¸‹ï¼‰çš„é«˜åº¦ï¼Œé»˜è®¤ä¸º1ï¼Œè¿™é‡Œæ˜¯2
+" ÃüÁîĞĞ£¨ÔÚ×´Ì¬ĞĞÏÂ£©µÄ¸ß¶È£¬Ä¬ÈÏÎª1£¬ÕâÀïÊÇ2
 set cmdheight=2
 
-" ä½¿å›æ ¼é”®ï¼ˆbackspaceï¼‰æ­£å¸¸å¤„ç†indent, eol, startç­‰
+" Ê¹»Ø¸ñ¼ü£¨backspace£©Õı³£´¦Àíindent, eol, startµÈ
 set backspace=indent,eol,start
-"set backspace=2
 
-" å…è®¸backspaceå’Œå…‰æ ‡é”®è·¨è¶Šè¡Œè¾¹ç•Œ
+" ÔÊĞíbackspaceºÍ¹â±ê¼ü¿çÔ½ĞĞ±ß½ç
 set whichwrap+=<,>,h,l
 
-" å¯ä»¥åœ¨bufferçš„ä»»ä½•åœ°æ–¹ä½¿ç”¨é¼ æ ‡ï¼ˆç±»ä¼¼officeä¸­åœ¨å·¥ä½œåŒºåŒå‡»é¼ æ ‡å®šä½ï¼‰
+" ¿ÉÒÔÔÚbufferµÄÈÎºÎµØ·½Ê¹ÓÃÊó±ê£¨ÀàËÆofficeÖĞÔÚ¹¤×÷ÇøË«»÷Êó±ê¶¨Î»£©
 set mouse=a
-set selection=exclusive
-set selectmode=mouse,key
 
-" å¯åŠ¨çš„æ—¶å€™ä¸æ˜¾ç¤ºé‚£ä¸ªæ´åŠ©ç´¢é©¬é‡Œå„¿ç«¥çš„æç¤º
+" Æô¶¯µÄÊ±ºò²»ÏÔÊ¾ÄÇ¸öÔ®ÖúË÷ÂíÀï¶ùÍ¯µÄÌáÊ¾
 set shortmess=atI
 
-" é€šè¿‡ä½¿ç”¨: commandså‘½ä»¤ï¼Œå‘Šè¯‰æˆ‘ä»¬æ–‡ä»¶çš„å“ªä¸€è¡Œè¢«æ”¹å˜è¿‡
+" Í¨¹ıÊ¹ÓÃ: commandsÃüÁî£¬¸æËßÎÒÃÇÎÄ¼şµÄÄÄÒ»ĞĞ±»¸Ä±ä¹ı
 set report=0
 
-" ä¸è®©vimå‘å‡ºè®¨åŒçš„æ»´æ»´å£°
+" ²»ÈÃvim·¢³öÌÖÑáµÄµÎµÎÉù
 set noerrorbells
 
-" åœ¨è¢«åˆ†å‰²çš„çª—å£é—´æ˜¾ç¤ºç©ºç™½ï¼Œä¾¿äºé˜…è¯»
+" ÔÚ±»·Ö¸îµÄ´°¿Ú¼äÏÔÊ¾¿Õ°×£¬±ãÓÚÔÄ¶Á
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" æœç´¢å’ŒåŒ¹é…
+" ËÑË÷ºÍÆ¥Åä
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" é«˜äº®æ˜¾ç¤ºåŒ¹é…çš„æ‹¬å·
+" ¸ßÁÁÏÔÊ¾Æ¥ÅäµÄÀ¨ºÅ
 set showmatch
 
-" åŒ¹é…æ‹¬å·é«˜äº®çš„æ—¶é—´ï¼ˆå•ä½æ˜¯ååˆ†ä¹‹ä¸€ç§’ï¼‰
+" Æ¥ÅäÀ¨ºÅ¸ßÁÁµÄÊ±¼ä£¨µ¥Î»ÊÇÊ®·ÖÖ®Ò»Ãë£©
 set matchtime=1
 
-" åœ¨æœç´¢çš„æ—¶å€™å¿½ç•¥å¤§å°å†™
+" ÔÚËÑË÷µÄÊ±ºòºöÂÔ´óĞ¡Ğ´
 set ignorecase
 
-" ä¸è¦é«˜äº®è¢«æœç´¢çš„å¥å­ï¼ˆphrasesï¼‰
+" ²»Òª¸ßÁÁ±»ËÑË÷µÄ¾ä×Ó£¨phrases£©
 " set nohlsearch
 
-" åœ¨æœç´¢æ—¶ï¼Œè¾“å…¥çš„è¯å¥çš„é€å­—ç¬¦é«˜äº®ï¼ˆç±»ä¼¼firefoxçš„æœç´¢ï¼‰
+" ÔÚËÑË÷Ê±£¬ÊäÈëµÄ´Ê¾äµÄÖğ×Ö·û¸ßÁÁ£¨ÀàËÆfirefoxµÄËÑË÷£©
 set incsearch
 
-" å…‰æ ‡ç§»åŠ¨åˆ°bufferçš„é¡¶éƒ¨å’Œåº•éƒ¨æ—¶ä¿æŒ5è¡Œè·ç¦»
-" 999ä¸€ç›´åœ¨å±å¹•ä¸­é—´
-set scrolloff=3
+" ¹â±êÒÆ¶¯µ½bufferµÄ¶¥²¿ºÍµ×²¿Ê±±£³Ö5ĞĞ¾àÀë
+" 999Ò»Ö±ÔÚÆÁÄ»ÖĞ¼ä
+set scrolloff=5
 
-" ä¸è¦é—ªçƒ
-set novisualbell
-
-" æˆ‘çš„çŠ¶æ€è¡Œæ˜¾ç¤ºçš„å†…å®¹ï¼ˆåŒ…æ‹¬æ–‡ä»¶ç±»å‹å’Œè§£ç ï¼‰
-set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-
-" æ€»æ˜¯æ˜¾ç¤ºçŠ¶æ€è¡Œ
+" ×ÜÊÇÏÔÊ¾×´Ì¬ĞĞ
 set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" æ–‡æœ¬æ ¼å¼å’Œæ’ç‰ˆ
+" ÎÄ±¾¸ñÊ½ºÍÅÅ°æ
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" è‡ªåŠ¨æ ¼å¼åŒ–
+" ×Ô¶¯¸ñÊ½»¯
 set formatoptions=tcrqn
 
-" ç»§æ‰¿å‰ä¸€è¡Œçš„ç¼©è¿›æ–¹å¼ï¼Œç‰¹åˆ«é€‚ç”¨äºå¤šè¡Œæ³¨é‡Š
+" ¼Ì³ĞÇ°Ò»ĞĞµÄËõ½ø·½Ê½£¬ÌØ±ğÊÊÓÃÓÚ¶àĞĞ×¢ÊÍ
 set autoindent
 
-" ä¸ºCç¨‹åºæä¾›è‡ªåŠ¨ç¼©è¿›
+" ÎªC³ÌĞòÌá¹©×Ô¶¯Ëõ½ø
 set smartindent
 
-" ä½¿ç”¨Cæ ·å¼çš„ç¼©è¿›
+" Ê¹ÓÃCÑùÊ½µÄËõ½ø
 set cindent
 
-" åˆ¶è¡¨ç¬¦ä¸º4
+" ÖÆ±í·ûÎª4
 set tabstop=4
 
-" ç»Ÿä¸€ç¼©è¿›ä¸º4
+" Í³Ò»Ëõ½øÎª4
 set softtabstop=4
 set shiftwidth=4
 
-" ä¸è¦ç”¨ç©ºæ ¼ä»£æ›¿åˆ¶è¡¨ç¬¦
+" ²»ÒªÓÃ¿Õ¸ñ´úÌæÖÆ±í·û
 set expandtab
 
-" ä¸è¦æ¢è¡Œ
+" ²»Òª»»ĞĞ
 set nowrap
 
-" åœ¨è¡Œå’Œæ®µå¼€å§‹å¤„ä½¿ç”¨åˆ¶è¡¨ç¬¦
+" ÔÚĞĞºÍ¶Î¿ªÊ¼´¦Ê¹ÓÃÖÆ±í·û
 set smarttab
 
-" æ˜¾ç¤ºTabå’Œç»“å°¾
-"set list
-"set listchars=tab:>.,trail:.,extends:#,nbsp:.
-"set listchars=tab:â–¸\ ,eol:Â¬
-"set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$
-
-" vimè‡ªèº«è®¾ç½®ï¼Œä¸æ˜¾ç¤ºé¢„è§ˆçª—å£
+" vim×ÔÉíÉèÖÃ£¬²»ÏÔÊ¾Ô¤ÀÀ´°¿Ú
 set completeopt=menuone 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocommands
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd") 
-    "autocmd FileType xml,html,slim,css,js,javascript,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby,markdown,sh,md,tex set number
-    "autocmd Filetype python setlocal textwidth=79 expandtab tabstop=4 shiftwidth=4
-    "autocmd Filetype php setlocal expandtab tabstop=4 shiftwidth=4
-    "autocmd FileType haskell,puppet,ruby,javascript,html,slim,yaml,sass,scss,css,jinja,vim setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-    "autocmd FileType text setlocal textwidth=80
-    "autocmd FileType java,c,cpp,cs vmap <C-o> <ESC>'<o
-    "autocmd FileType xml,html vmap <C-o> <ESC>'<i<!--<ESC>o<ESC>'>o-->
-    ""autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl setlocal textwidth=100
-    ""autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-    ""autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+" ÌáÊ¾¿ò
+highlight Pmenu guibg=darkgrey guifg=black
+highlight PmenuSel guibg=lightgrey guifg=black
 
-    "au FileType html,javascript let g:javascript_enable_domhtmlcss = 1
-    "au BufRead,BufNewFile *.json setfiletype json syntax=javascript
-    "au BufRead,BufNewFile *.js setfiletype jquery
-    "au BufRead,BufNewFile *.md setfiletype markdown
-    "au BufRead,BufNewFile *.less setfiletype css
-    "au BufRead,BufNewFile *.styl setfiletype css
-    
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ exe " normal g`\"" |
-    \ endif
-endif "has("autocmd")"
+" Éè¶¨Êó±ê¹¦ÄÜ
+set mousehide
+set mousemodel=extend
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" é”®æ˜ å°„
+" ¼üÓ³Éä
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ä¿®æ”¹<leader>çš„æ˜ å°„é”®ä¸º','
+"ĞŞ¸Ä<leader>µÄÓ³Éä¼üÎª','
 let mapleader=","
 
 
-" é«˜äº®æ˜¾ç¤ºæ™®é€štxtæ–‡ä»¶ï¼ˆéœ€è¦txt.vimè„šæœ¬ï¼‰
-au BufRead,BufNewFile *  setfiletype txt
+" ×Ô¶¯±£´æÉÏ´Î±à¼­Î»ÖÃ
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+
+
+"   + ----------------------------------------- +
+"   |                                           |
+"   |                ²å¼şÅäÖÃ                   |
+"   |                                           |
+"   + ----------------------------------------- +
+
+
+
+call plug#begin('$VIM/vimfiles/plugged')
+
+" User Interface
+"""""""""""""""""""""""""""""""
+"Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mswift42/vim-themes'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'google/vim-colorscheme-primary'
+
+
+" syntax
+Plug 'cespare/vim-toml'
+
+"adjust to nvim
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+" AutoComplete
+"""""""""""""""""""""""""""""""
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+"Plug 'honza/vim-snippets'
+"Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-lua-ftplugin'
+Plug 'richq/vim-cmake-completion'
+Plug 'eagletmt/neco-ghc'
+Plug 'rust-lang/rust.vim'
+"Plug 'racer-rust/vim-racer'
+Plug 'sebastianmarkow/deoplete-rust'
+Plug 'zchee/deoplete-clang'
+Plug 'neomake/neomake'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+
+" Tools
+""""""""""""""""""""""""""""""
+Plug 'Shougo/denite.nvim'
+Plug 'Shougo/deol.nvim'
+" Not Usable Yet
+"Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'ervandew/supertab'
+Plug 'chemzqm/vim-easygit'
+Plug 'chemzqm/denite-git'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+
+let g:python3_host_prog='C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\python.exe'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                 NerdTree                  """""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""" 
-"è®¾ç½®F9ä¸ºå¼€å¯å¿«æ·æ–¹å¼
-nmap nt :NERDTreeMirror<CR>
-nmap nt :NERDTreeToggle<CR>
+function! ToggleNerdtree()
+    NERDTreeToggle
+    set go-=L
+endfunction
+nnoremap nt :call ToggleNerdtree()<CR>
+
 let NERDChristmasTree=1
 "let NERDTreeChDirMode=0 
 let NERDTreeDirArrows=1
@@ -351,23 +272,10 @@ let NERDTreeAutoCenter=1
 let NERDTreeCaseSensitiveSort=0
 let NERDTreeHighlightCursorline=1
 let NERDTreeWinSize=25
-"å…³é—­æ–‡ä»¶ååªå‰©NerdTreeçš„æ—¶å€™ä¹Ÿä¸€å¹¶å…³é—­
+"¹Ø±ÕÎÄ¼şºóÖ»Ê£NerdTreeµÄÊ±ºòÒ²Ò»²¢¹Ø±Õ
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               NerdCommenter               """""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""" 
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                  Grep                     """""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""" 
-nnoremap <silent> <C-G> :Grep<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                Powerline                  """""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:Powerline_symbols = 'fancy'  " å¯ç”¨ smartcase.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                 Airline                   """""""""""""""""""""
@@ -378,309 +286,209 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
 
-let g:airline_theme = 'solarized'
-
-let g:airline#extensions#default#layout = [
-	\ [ 'a', 'b', 'c' ],
-	\ [ 'x', 'y', 'z', 'warning', 't' ]
-	\ ]
-let g:airline_section_t = '%{strftime("%a %k:%M")}'
-
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-
-" powerline symbols
-"let g:airline_left_sep = 'î‚°'
-"let g:airline_left_alt_sep = 'î‚±'
-"let g:airline_right_sep = 'î‚²'
-"let g:airline_right_alt_sep = 'î‚³'
-"let g:airline_symbols.branch = 'î‚ '
-"let g:airline_symbols.readonly = 'î‚¢'
-"let g:airline_symbols.linenr = 'î‚¡'
+let g:airline#extensions#default#layout = [ ['a', 'b', 'c'], ['z', 'warning'] ]
+"let g:airline_section_t = '%{strftime("%a %k:%M")}'
+let g:airline_section_z = '%3p%% %l:%c'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+ 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                Promptline                 """""""""""""""""""""
+"                 Deoplete                   """""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:promptline_theme = 'airline_visual'
-"let g:promptline_preset = 'full'
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case            = 1
+let g:deoplete#enable_camel_case            = 1
+let g:deoplete#auto_completion_start_length = 2
+let g:deoplete#max_list                     = 10
 
-"let g:promptline_powerline_symbols = 0
-"let g:promptline_symbols = {
-  "\ 'left'       : 'â®€',
-  "\ 'left_alt'   : '&',
-  "\ 'dir_sep'    : ' â® ',
-  "\ 'truncation' : 'Â·Â·Â·',
-  "\ 'vcs_branch' : 'â­ ',
-  "\ 'space'      : ' '}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               NeoComplete                 """""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-" åœç”¨ AutoComplPop.
-let g:acp_enableAtStartup = 0
-" å¯ç”¨ neocomplete.
-let g:neocomplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header  = '/Library/Developer/CommandLineTools/usr/lib/clang'
 "
-let g:neocomplete#enable_smart_case = 1
-" è®¾å®šæœ€å°è¯­æ³•å…³é”®è¯é•¿åº¦.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-"
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" å®šä¹‰å­—å…¸.
-let g:neocomplete#dictionary_filetype_lists = {
-	\ 'default' : '',
-	\ 'vimshell' : $HOME.'/.vimshell_hist',
-	\ 'scheme' : $HOME.'/.gosh_completions',
-	\ }
-  "\ 'php' : $HOME.'/.vim/dict/php.dic',
-  "	\ 'css' : $HOME.'.vim/dict/css.dic',
-  "	\ 'javascript' : $HOME.'.vim/dict/javascript.dic'
-
-
-" å®šä¹‰å…³é”®è¯.
-if !exists('g:neocomplete#keyword_patterns')
-	let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" æ’ä»¶é”®æ˜ å°„.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" ç±»ä¼¼äºSuperTabç”¨æ³• .
-"imap <expr><TAB> neocomplete#sources#snippets_complete#expandable() ? "\<Plug>(neocomplete#snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" æ¨èçš„é”®æ˜ å°„.
-" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-	"return neocomplete#close_popup() . "\<CR>"
-	"" For no inserting <CR> key.
-	""return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-"endfunction
-
-"" <TAB>: completion. NO USE with snipmate
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-Y>  neocomplete#close_popup()
-"inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-"inoremap <expr><Enter>  pumvisible() ? neocomplete#close_popup()."\<C-n>" : "\<Enter>"
-"inoremap <expr><Enter>  pumvisible() ? "\<C-Y>" : "\<Enter>"
-
-" ç±»ä¼¼äºAutoComplPopç”¨æ³• .
-"let g:neocomplete#enable_auto_select = 1
-" ç±»ä¼¼äº Shell ç”¨æ³•(ä¸æ¨è).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><CR>  neocomplete#smart_close_popup() . "\<CR>"
-
-" å¯ç”¨ omni è¡¥å…¨.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP "vimé»˜è®¤
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-" å¯ç”¨ heavy omni è¡¥å…¨.
-if !exists('g:neocomplete#sources#omni#functions')
-	let g:neocomplete#sources#omni#functions = {}
-endif
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-
-"let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-"let g:neocomplete#omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-
-" å…¼å®¹clang_complete
-"if !exists('g:neocomplete#force_omni_input_patterns')
-  "let g:neocomplete#force_omni_input_patterns = {}
+" to make xolox/lua-ftplugin work
+"let g:lua_check_syntax = 1
+"let g:lua_complete_omni = 1
+"let g:lua_complete_dynamic = 0
+"let g:lua_define_completion_mappings = 0
+"if !exists('g:deoplete#omni#input_patterns')
+    "let g:deoplete#omni#input_patterns = {}
 "endif
-"let g:neocomplete#force_overwrite_completefunc = 1
-"let g:neocomplete#force_omni_input_patterns.c =
-  "\ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-"let g:neocomplete#force_omni_input_patterns.cpp =
-  "\ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-"let g:neocomplete#force_omni_input_patterns.objc =
-  "\ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
-"let g:neocomplete#force_omni_input_patterns.objcpp =
-  "\ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
-"let g:clang_complete_auto = 0
-"let g:clang_auto_select = 0
-""let g:clang_use_library = 1
-
-"" å…¼å®¹jedi
-"autocmd FileType python setlocal omnifunc=jedi#completions
-"let g:jedi#completions_enabled = 0
-"let g:jedi#auto_vim_configuration = 0
-"let g:neocomplete#force_omni_input_patterns.python =
-"\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-
-" rank sourch list "deleted
-"let g:neocomplete#source_rank = {
-"	\ 'buffer_complete'     : 6,
-"	\ 'dictionary_complete' : 5,
-"	\ 'syntax_complete'     : 4,
-"	\ }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                NeoSnippet                """""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plugin key-mappings.
-"imap <C-k>	<Plug>(neosnippet_expand_or_jump)
-"smap <C-k>	<Plug>(neosnippet_expand_or_jump)
-"xmap <C-k>	<Plug>(neosnippet_expand_target)
-
-""SuperTab like snippets behavior.
-""imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-""smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: "\<TAB>"
-
-""For snippet_complete marker.
-"if has('conceal')
-	"set conceallevel=2 concealcursor=i
+"if !exists('g:deoplete#omni#functions')
+    "let g:deoplete#omni#functions = {}
 "endif
-
-" Tell Neosnippet about the other snippets
-" let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"              Clang_Complete              """""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:clang_complete_copen = 1
-"let g:clang_periodic_quickfix = 1
-"let g:clang_snippets = 1
-"let g:clang_close_preview = 1
-"let g:clang_use_library = 1
-"let g:clang_complete_auto = 0
-"let g:clang_auto_select = 0
-""let g:clang_user_options = '|| exit 0'
-"let g:clang_user_options = '-std=c++11'
-"let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
+"let g:deoplete#omni#input_patterns.lua = '\w+|[^. *\t][.:]\w*'
+"let g:deoplete#omni#functions.lua = 'xolox#lua#omnifunc'
+"" snippets
 ""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""               Syntastic                  """""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_error_symbol = 'âœ—âœ—'
-"let g:syntastic_style_error_symbol = 'âœ âœ '
-"let g:syntastic_warning_symbol = 'âˆ†âˆ†'
-"let g:syntastic_style_warning_symbol = 'â‰ˆâ‰ˆ'
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_loc_list_height = 5
-"let g:syntastic_python_checkers=['flake8']
-"let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-""phpcsï¼Œtab 4ä¸ªç©ºæ ¼ï¼Œç¼–ç å‚è€ƒä½¿ç”¨CodeIgniteré£æ ¼
-"let g:syntastic_phpcs_conf = "--tab-width=4 --standard=CodeIgniter"
-"let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = '-std=c++11'
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lua_complete_omni=0
-let g:lua_define_completefunc = 0
-let g:lua_define_omnifunc = 0
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               EasyMotion                 """""""""""""""""""""
+"                 denite            """""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-"å…¼å®¹å¤§éƒ¨åˆ†é…è‰²æ–¹æ¡ˆ
-"hi link EasyMotionTarget ErrorMsg
-"hi link EasyMotionShade  Comment
+" reset 50% winheight on window resize
+augroup deniteresize
+  autocmd!
+  autocmd VimResized,VimEnter * call denite#custom#option('default',
+        \'winheight', winheight(0) / 2)
+augroup end
 
-" -----------------------------------------------------------------------------------
-" æç¤ºæ¡†
+call denite#custom#option('default', {
+      \ 'prompt': '?'
+      \ })
+
+"call denite#custom#var('file_rec', 'command',
+"      \ ['rg', '--files', '--glob', '!.git', ''])
+"call denite#custom#var('grep', 'command', ['rg'])
+"call denite#custom#var('grep', 'default_opts',
+"      \ ['--hidden', '--vimgrep', '--no-heading', '-S'])
+"call denite#custom#var('grep', 'recursive_opts', [])
+"call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+"call denite#custom#var('grep', 'separator', ['--'])
+"call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>',
+      \'noremap')
+call denite#custom#map('normal', '<Esc>', '<NOP>',
+      \'noremap')
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>',
+      \'noremap')
+call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>',
+      \'noremap')
+call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>',
+      \'noremap')
+
+
+" denite git status
+call denite#custom#map(
+      \ 'normal',
+      \ 'a',
+      \ '<denite:do_action:add>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'normal',
+      \ 'd',
+      \ '<denite:do_action:delete>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'normal',
+      \ 'r',
+      \ '<denite:do_action:reset>',
+      \ 'noremap'
+      \)
+
+nnoremap <C-p> :<C-u>Denite file_rec<CR>
+nnoremap <leader>p :<C-u>Denite file_rec<CR>
+nnoremap <leader>gl :<C-u>Denite gitlog:all<CR>
+nnoremap <leader>gs :<C-u>Denite gitstatus<CR>
+nnoremap <leader>s :<C-u>Denite buffer<CR>
+nnoremap <leader>8 :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+nnoremap <leader>/ :<C-u>Denite grep:. -mode=normal<CR>
+nnoremap <leader>d :<C-u>DeniteBufferDir file_rec<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"                Haskell                    "
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"                Rust                       "
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#sources#rust#racer_binary='C:/Users/Administrator/.cargo/bin/racer.exe'
+"let g:deoplete#sources#rust#rust_source_path='/Users/hxl/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+let g:deoplete#sources#rust#rust_source_path='C:/Users/Administrator/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"                Neosnippet                       "
+"""""""""""""""""""""""""""""""""""""""""""""
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"                Startify                   "
+"""""""""""""""""""""""""""""""""""""""""""""
+" ÆğÊ¼Ò³ÏÔÊ¾µÄÁĞ±í³¤¶È
+let g:startify_files_number = 8
+let g:startify_change_to_dir = 1
+
+" ÊÇ·ñ×Ô¶¯¼ÓÔØÄ¿Â¼ÏÂµÄSession.vim, ºÜºÃÓÃ
+let g:startify_session_autoload = 1
+let g:startify_list_order = ['sessions', 'files']
+
+
+
+" SuperTab
+let g:SuperTabDefaultCompletionType = 'context'
+
+
+
+
+
+
+
+
+
+
+
+
+"
+"set bg=dark
+set bg=light
+set t_Co=256
+"color solarized8_flat
+"color PaperColor
+"colorscheme desertink
+"color wombat256
+"color onedark
+"colorscheme gruvbox
+color desert
+let g:airline_theme = 'papercolor'
+
+" ÌáÊ¾¿ò
 highlight Pmenu guibg=darkgrey guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
-" ------------ è‡ªå®šä¹‰åŠŸèƒ½ ------------
-" è®¾å®šé¼ æ ‡åŠŸèƒ½
-set mousehide
-set mousemodel=extend
-" ------------ è‡ªå®šä¹‰æŒ‰é”®æ˜ å°„ ------------
-map <C-o> :browse confirm e<cr>
-map <C-s> :w<cr>
-map <ESC> <C-s>
-map <C-j> :bn<Enter>
-map <C-k> :bp<Enter>
-"map <C-[> <C-t>
 
-" ------ f5ç¼–è¯‘å•æ–‡ä»¶cpp ------
-" F5 c/cpp æš‚ä¸å¤„ç†
-map <F5> :call Compile()<CR>
-imap <F5> <ESC>:call Compile()<CR>
+" --------------- key mapping --------------- "
+nnoremap <leader>` :terminal<CR>
+"set shell=\"c:\windows\system\cmd.exe \k \"\"c:\MinGW\setpaths.cmd\"\"\"
+"nnoremap <leader>` :shell<CR>
+nnoremap <leader>w :Startify<CR>
+nnoremap <leader>q :q!<CR>
 
-func! Compile()
-    if (&filetype == 'c') || (&filetype == "cpp")
-        "call Make()
-    elseif &filetype == "go"
-        exec "!go run %"
-    elseif &filetype == "lua"
-        exec "!lua %"
-    endif
-endfunc
+tnoremap <Esc> <C-\><C-n>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-N> :bn<CR>
 
+nmap <C-_> <leader>c<space>
+vmap <C-_> <leader>c<space><CR>gv
 
-func! Make()
-    exe ":ccl"
-    exe ":update"
-    exe ":!make"
-    echohl WarningMsg | echo " compiling..."
-    exe ":!%<.exe"
-endfunc
+let g:SuperTabMappingForward = '<tab>'
+let g:SuperTabMappingBackward = '<s-tab>'
 
-
-"è°ƒç”¨AStyleç¨‹åºï¼Œè¿›è¡Œä»£ç ç¾åŒ–
-func CodeFormat()
-          "å–å¾—å½“å‰å…‰æ ‡æ‰€åœ¨è¡Œå·
-          let lineNum = line(".")
-          "Cæºç¨‹åº
-          if (&filetype == 'c') || (&filetype == 'cpp')
-                    "æ‰§è¡Œè°ƒç”¨å¤–éƒ¨ç¨‹åºçš„å‘½ä»¤
-                    exec "%! astyle -A3Lfpjk3NS\<CR>"
-          "JAVAæºç¨‹åº
-          elseif &filetype == 'java'
-                    "æ‰§è¡Œè°ƒç”¨å¤–éƒ¨ç¨‹åºçš„å‘½ä»¤
-                    exec "%! astyle -A2Lfpjk3NS\<CR>"
-          else 
-                    "æç¤ºä¿¡æ¯
-                    echo "ä¸æ”¯æŒ".&filetype."æ–‡ä»¶ç±»å‹ã€‚"
-          endif
-          è¿”å›å…ˆå‰å…‰æ ‡æ‰€åœ¨è¡Œ
-          exec lineNum
-endfunc
-"æ˜ å°„ä»£ç ç¾åŒ–å‡½æ•°åˆ°Shift+få¿«æ·é”®
-map <F8> <Esc>:call CodeFormat()<CR>
-
-
-" ----------------------- auto commands ----------------------------- "
-" BufWritePost : after the file is saved;
-"autocmd BufWritePre *.c,*.cpp execute '!astyle %'
-"
-
-function OpenFileLocation()
-    if (expand("%") != "")
-        exec "!start explorer /select, %"
-    else
-        exec "!start explorer /select, %:p:h"
-    endif
-endfunction
-
-map <F3> <Esc>:call OpenFileLocation()<CR>
+nmap <F5> :term make<CR> 
+nmap <F6> :term make 
+au FocusLost * silent! up
