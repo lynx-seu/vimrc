@@ -2,14 +2,13 @@ set go-=r
 set go-=l
 
 if has("gui_running")
-    "set guifont=Ubuntu_Mono_derivative_Powerlin:h12
-    "set guifont=Monaco_for_Powerline:h12
     set guifont=Consolas_for_Powerline_FixedD:h10
+    "set guifont=Menlo_for_Powerline:h9
     set go-=m
     set go-=T
 
     set hidden
-    set lsp=6
+    set lsp=3
     set lines=60 columns=120
     winpos 1200 0
 
@@ -210,6 +209,7 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'mswift42/vim-themes'
 "Plug 'rafi/awesome-vim-colorschemes'
 Plug 'google/vim-colorscheme-primary'
+Plug 'liuchengxu/space-vim-dark'
 
 
 " syntax
@@ -279,7 +279,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                 Airline                   """""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
@@ -412,8 +412,19 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 "                Rust                       "
 """""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#sources#rust#racer_binary='C:/Users/Administrator/.cargo/bin/racer.exe'
-"let g:deoplete#sources#rust#rust_source_path='/Users/hxl/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 let g:deoplete#sources#rust#rust_source_path='C:/Users/Administrator/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src'
+
+au FileType rust nmap <buffer> gd <plug>DeopleteRustGoToDefinitionTab
+au FileType rust nmap <buffer> K  <plug>DeopleteRustShowDocumentation
+
+"
+"let g:racer_cmd="C:/Users/Administrator/.cargo/bin/racer.exe"
+"let g:racer_experimental_completer=1
+
+"au FileType rust nmap gd <Plug>(rust-def)
+"au FileType rust nmap gs <Plug>(rust-def-split)
+"au FileType rust nmap gx <Plug>(rust-def-vertical)
+"au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -462,13 +473,15 @@ let g:SuperTabDefaultCompletionType = 'context'
 "set bg=dark
 set bg=light
 set t_Co=256
-"color solarized8_flat
-color PaperColor
+"color PaperColor
 "colorscheme desertink
 "color wombat256
 "color onedark
 "colorscheme gruvbox
-"color desert
+"color desertEx
+"color google
+"color xemacs
+color primary
 let g:airline_theme = 'papercolor'
 
 " ÌáÊ¾¿ò
