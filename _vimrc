@@ -75,7 +75,8 @@ set foldmethod=syntax
 set nobackup
 
 " 不要生成swap文件，当buffer被丢弃的时候隐藏它
-setlocal noswapfile
+set noswapfile
+"setlocal noswapfile
 set bufhidden=hide
 
 " 增强模式中的命令行自动完成操作
@@ -169,8 +170,8 @@ set smarttab
 set completeopt=menuone 
 
 " 提示框
-highlight Pmenu guibg=darkgrey guifg=black
-highlight PmenuSel guibg=lightgrey guifg=black
+"highlight Pmenu guibg=darkgrey guifg=black
+"highlight PmenuSel guibg=lightgrey guifg=black
 
 " 设定鼠标功能
 set mousehide
@@ -201,13 +202,13 @@ call plug#begin('$VIM/vimfiles/plugged')
 
 " User Interface
 """""""""""""""""""""""""""""""
-"Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mswift42/vim-themes'
-Plug 'rafi/awesome-vim-colorschemes'
+"Plug 'mswift42/vim-themes'
+"Plug 'rafi/awesome-vim-colorschemes'
 Plug 'google/vim-colorscheme-primary'
 
 
@@ -357,6 +358,15 @@ call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>',
       \'noremap')
 
 
+call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+call denite#custom#var('file_rec/git', 'command',
+    \ ['git', 'ls-files', '-co', '--exclude-standard'])
+nnoremap <silent> <C-p> :<C-u>Denite
+    \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+nnoremap <silent> <leader>p :<C-u>Denite
+    \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+
+
 " denite git status
 call denite#custom#map(
       \ 'normal',
@@ -379,8 +389,6 @@ call denite#custom#map(
       \ 'noremap'
       \)
 
-nnoremap <C-p> :<C-u>Denite file_rec<CR>
-nnoremap <leader>p :<C-u>Denite file_rec<CR>
 nnoremap <leader>gl :<C-u>Denite gitlog:all<CR>
 nnoremap <leader>gs :<C-u>Denite gitstatus<CR>
 nnoremap <leader>s :<C-u>Denite buffer<CR>
@@ -455,12 +463,12 @@ let g:SuperTabDefaultCompletionType = 'context'
 set bg=light
 set t_Co=256
 "color solarized8_flat
-"color PaperColor
+color PaperColor
 "colorscheme desertink
 "color wombat256
 "color onedark
 "colorscheme gruvbox
-color desert
+"color desert
 let g:airline_theme = 'papercolor'
 
 " 提示框
