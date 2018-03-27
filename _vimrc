@@ -1,17 +1,21 @@
 set go-=r
 set go-=l
+set go-=L
 
 if has("gui_running")
-    set guifont=Consolas_for_Powerline_FixedD:h10
+    "set guifont=Consolas_for_Powerline_FixedD:h11
     "set guifont=Menlo_for_Powerline:h9
+    set guifont=Consolas:h11
     set go-=m
     set go-=T
 
     set hidden
     set lsp=3
-    set lines=60 columns=120
-    winpos 1200 0
+    set lines=60 columns=136
+    winpos 0 0
 
+    "set path+=C:/MinGW/mingw32/bin,C:/MinGW/msys32/usr/bin
+    
     "-- 80 columns limit
     "let &colorcolumn=join(range(81,999),",")
     "let &colorcolumn="80,".join(range(400,999),",")
@@ -253,7 +257,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
-let g:python3_host_prog='C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\python.exe'
+let g:python3_host_prog='C:\Program Files\python\python.exe'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                 NerdTree                  """""""""""""""""""""
@@ -279,18 +283,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                 Airline                   """""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#virtualenv#enabled = 1
+let g:airline#extensions#virtualenv#enabled = 0
 
 let g:airline#extensions#default#layout = [ ['a', 'b', 'c'], ['z', 'warning'] ]
 "let g:airline_section_t = '%{strftime("%a %k:%M")}'
 let g:airline_section_z = '%3p%% %l:%c'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
- 
+
+
+let g:airline_left_sep=">"
+let g:airline_left_alt_sep=">"
+let g:airline_right_sep="<"
+let g:airline_right_alt_sep="<"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                 Deoplete                   """""""""""""""""""""
@@ -298,7 +307,7 @@ let g:airline#extensions#whitespace#symbol = '!'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case            = 1
 let g:deoplete#enable_camel_case            = 1
-let g:deoplete#auto_completion_start_length = 2
+let g:deoplete#auto_completion_start_length = 3
 let g:deoplete#max_list                     = 10
 
 let g:deoplete#sources#clang#libclang_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
@@ -331,9 +340,7 @@ augroup deniteresize
         \'winheight', winheight(0) / 2)
 augroup end
 
-call denite#custom#option('default', {
-      \ 'prompt': '?'
-      \ })
+call denite#custom#option('default', { 'prompt': '>' })
 
 "call denite#custom#var('file_rec', 'command',
 "      \ ['rg', '--files', '--glob', '!.git', ''])
@@ -408,6 +415,10 @@ let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 
+
+"let g:easygit_edit_edit_command = 'vsplit'
+"let g:easygit_diff_edit_command = 'edit'
+
 """""""""""""""""""""""""""""""""""""""""""""
 "                Rust                       "
 """""""""""""""""""""""""""""""""""""""""""""
@@ -463,25 +474,19 @@ let g:SuperTabDefaultCompletionType = 'context'
 
 
 
-
-
-
-
-
-
 "
 "set bg=dark
-set bg=light
+"set bg=light
 set t_Co=256
-"color PaperColor
 "colorscheme desertink
 "color wombat256
 "color onedark
 "colorscheme gruvbox
-"color desertEx
+"color desertedocean
 "color google
 "color xemacs
-color primary
+"color xian
+color desertEx
 let g:airline_theme = 'papercolor'
 
 " ÌáÊ¾¿ò
@@ -489,11 +494,11 @@ highlight Pmenu guibg=darkgrey guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
 
 " --------------- key mapping --------------- "
-nnoremap <leader>` :terminal<CR>
+nnoremap <leader>` :Deol <CR>
 "set shell=\"c:\windows\system\cmd.exe \k \"\"c:\MinGW\setpaths.cmd\"\"\"
 "nnoremap <leader>` :shell<CR>
 nnoremap <leader>w :Startify<CR>
-nnoremap <leader>q :q!<CR>
+nnoremap <leader>q :bd<CR>
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-j> <C-w>j
@@ -508,6 +513,10 @@ vmap <C-_> <leader>c<space><CR>gv
 let g:SuperTabMappingForward = '<tab>'
 let g:SuperTabMappingBackward = '<s-tab>'
 
-nmap <F5> :term make<CR> 
-nmap <F6> :term make 
-au FocusLost * silent! up
+imap <F5> <C-c> :wa<CR>:Deol make<CR>
+nnoremap <F5> :wa<CR>:Deol make<CR> 
+nmap <F6> :wa<CR>:Deol make 
+imap <F6> <C-c> :wa<CR>:Deol make 
+au FocusLost * silent! wa
+
+nmap <leader>o :!explorer .<CR>
