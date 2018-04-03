@@ -225,14 +225,14 @@ Plug 'roxma/vim-hug-neovim-rpc'
 
 " AutoComplete
 """""""""""""""""""""""""""""""
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/deoplete.nvim'
 "Plug 'honza/vim-snippets'
 "Plug 'xolox/vim-misc'
 "Plug 'xolox/vim-lua-ftplugin'
 Plug 'richq/vim-cmake-completion'
 Plug 'eagletmt/neco-ghc'
 Plug 'rust-lang/rust.vim'
-"Plug 'racer-rust/vim-racer'
+Plug 'racer-rust/vim-racer'
 Plug 'sebastianmarkow/deoplete-rust'
 Plug 'zchee/deoplete-clang'
 Plug 'neomake/neomake'
@@ -486,21 +486,24 @@ set t_Co=256
 "color google
 "color xemacs
 "color xian
-color desertEx
-let g:airline_theme = 'papercolor'
+"color desertEx
+"color Dev_Delight
+"color google
+color Tomorrow
+let g:airline_theme = 'tomorrow'
 
 " ÌáÊ¾¿ò
 highlight Pmenu guibg=darkgrey guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
 
 " --------------- key mapping --------------- "
-nnoremap <leader>` :Deol <CR>
+nnoremap <leader>` :term bash <CR>
 "set shell=\"c:\windows\system\cmd.exe \k \"\"c:\MinGW\setpaths.cmd\"\"\"
 "nnoremap <leader>` :shell<CR>
 nnoremap <leader>w :Startify<CR>
 nnoremap <leader>q :bd<CR>
 
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-D> <C-\><C-n>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
